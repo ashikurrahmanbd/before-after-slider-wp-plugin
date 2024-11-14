@@ -19,11 +19,24 @@ class Shortcode {
      * 
      * @return string
      */
-    public function render_shortcode($atts, $content){
+    public function render_shortcode($atts, $content = null){
+
+        $atts = shortcode_atts( array(
+
+            'attribute_name'    => 'default_value',
+
+        ), $atts, 'pxls-bas' );
+
+        ob_start();
+        ?>
 
 
-        return "something";
+        
 
+
+        <?php
+
+        return ob_get_clean();
         
     }
 
