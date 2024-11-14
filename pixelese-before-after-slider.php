@@ -128,7 +128,15 @@ final class Pixelese_Before_After_Slider{
      */
     public function load_dependencies() {
 
-       new Pixelese\Bas\Admin\Menu();
+       if ( is_admin(  ) ) {
+
+            new Pixelese\Bas\Admin();
+
+       } else {
+
+            new Pixelese\Bas\Frontend();
+
+       }
 
     }
 
