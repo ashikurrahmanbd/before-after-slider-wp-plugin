@@ -1,0 +1,25 @@
+{
+    "name": "proashik012/pixelese-before-after-slider",
+    "description": "Professional Before After Slider",
+    "type": "wordpress-plugin",
+    "license": "GPLv2",
+    "autoload": {
+        "psr-4": {
+            "Proashik012\\PixeleseBeforeAfterSlider\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ashikur Rahman",
+            "email": "proashik012@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "psr-4" : {
+
+        "Pixelese\\BAS" : "includes/"
+
+    },
+    "files" : []
+}

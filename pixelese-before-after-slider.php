@@ -18,6 +18,7 @@ if ( ! defined('ABSPATH') ) {
 
 }
 
+require_once __DIR__ . '/vendor/autoload.php';
 
 /**
  * Summary of Pixelese_Before_After_Slider
@@ -50,7 +51,6 @@ final class Pixelese_Before_After_Slider{
         add_action( 'plugins_loaded', [$this, 'load_dependencies'] );
 
         
-
 
     }
 
@@ -120,6 +120,17 @@ final class Pixelese_Before_After_Slider{
 
     }
 
+
+    /**
+     * Load all the files and clases
+     * 
+     * @return void
+     */
+    public function load_dependencies() {
+
+
+
+    }
 
 
 
