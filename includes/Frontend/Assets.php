@@ -6,15 +6,14 @@ class Assets {
 
     function __construct(){
 
-        add_action( 'wp_enqueue_scripts', [$this, 'plugin_assets_enqueue'] );
+        add_action( 'wp_enqueue_scripts', [$this, 'plugin_assets_enqueue_frontend'] );
 
     }
 
 
-    public function plugin_assets_enqueue() {
+    public function plugin_assets_enqueue_frontend() {
 
         global $post;
-
 
         wp_register_style( 'pxls-bas-min-css', PXLS_BAS_ASSETS . '/css/pxls-image-compare.min.css', null, filemtime(__FILE__));
 
@@ -22,15 +21,10 @@ class Assets {
 
         
 
-
         wp_register_script( 'pxls-slider-min-js', PXLS_BAS_ASSETS . '/js/pxls-image-compare.min.js', array('jquery'), filemtime(__FILE__), true);
 
+        wp_register_script( 'pxls-bas-script', PXLS_BAS_ASSETS . '/js/main.js', array('jquery'), filemtime(__FILE__), true);   
 
-        wp_register_script( 'pxls-bas-script', PXLS_BAS_ASSETS . '/js/main.js', array('jquery'), filemtime(__FILE__), true);
-
-        
-
-        
 
         if ( is_singular() && has_shortcode( $post->post_content, 'pxls-bas' ) ) {
 
@@ -38,8 +32,7 @@ class Assets {
 
             wp_enqueue_style( 'pxls-frontend-css' );
 
-
-            wp_enqueue_script( 'pxls-hammer-js' );
+            
 
             wp_enqueue_script( 'pxls-slider-min-js' );
 
@@ -51,8 +44,8 @@ class Assets {
 
         
 
-
-
     }
+
+
 
 }
