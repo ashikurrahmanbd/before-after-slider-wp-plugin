@@ -91,7 +91,7 @@ class Menu {
 
         $get_color = get_option( 'pxls_bas_primary_color');
 
-        $post_info = get_post_meta( 73, 'pxls_bas_meta_box_before_image', true );
+        $post_info = get_post_meta( 84, '_pxls_bas_metx_box_before_image', true );
 
         echo "<br />";
 
