@@ -11,18 +11,12 @@ class Assets{
     }
 
 
-    public function plugin_admin_assets_register(){
+    public function plugin_admin_assets_register($hook_suffix){
 
         global $typenow;
 
         $screen = get_current_screen();
-
-    
-        // Check if we are on the desired post type's page
        
-
-            // Enqueue WordPress media library if needed
-            wp_enqueue_media();
     
             // Register and enqueue CSS and JS for admin page
             wp_register_style(
@@ -40,8 +34,19 @@ class Assets{
                 true
             );
     
-            wp_enqueue_style('pxls-bas-admin-style');
-            wp_enqueue_script('pxls-bas-admin-script');
+            if ( is_admin() && $screen->post_type === 'pxls-bas' || is_admin() && $screen->base === 'toplevel_page_pxls-bas-settings' ) {
+
+                // Enqueue WordPress media library if needed
+                wp_enqueue_media();
+
+                wp_enqueue_style('pxls-bas-admin-style');
+
+                wp_enqueue_script('pxls-bas-admin-script');
+
+                
+            }
+
+            
             
         
        

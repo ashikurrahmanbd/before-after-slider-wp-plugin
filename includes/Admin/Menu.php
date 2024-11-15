@@ -74,13 +74,16 @@ class Menu {
 
     public function plugin_settings_register(){
 
-        register_setting( 'pxls_bas_settings_group', 'pxls_bas_primary_color' );
+        register_setting( 'pxls_bas_settings_group', 'pxls_bas_bf_bg_color' );
+
+        register_setting( 'pxls_bas_settings_group', 'pxls_bas_bf_bg_color_opacity' );
 
         add_settings_section( 'pxls_bas_settings_section_general', 'General Settings', '', 'pxls-bas-settings' );
 
 
-        add_settings_field( 'pxls_bas_primary_color', 'Primary Color', [$this, 'pxls_bas_primary_color_callback'], 'pxls-bas-settings', 'pxls_bas_settings_section_general',);
+        add_settings_field( 'pxls_bas_primary_color', 'Before After Tag Bg Color', [$this, 'pxls_bas_primary_color_callback'], 'pxls-bas-settings', 'pxls_bas_settings_section_general',);
 
+        add_settings_field( 'pxls_bas_bf_bg_color_opacity', 'Before After Tag Bg Color Opacity', [$this, 'pxls_bas_primary_color_opacity_callback'], 'pxls-bas-settings', 'pxls_bas_settings_section_general',);
 
 
     }
@@ -89,11 +92,31 @@ class Menu {
 
     public function pxls_bas_primary_color_callback(){
 
-        $get_color = get_option( 'pxls_bas_primary_color');
+        $get_bf_bg_color = get_option( 'pxls_bas_bf_bg_color');
+
        
        ?>
 
-            <input type="color" name="pxls_bas_primary_color" value="<?php echo $get_color; ?>">
+            <input type="color" name="pxls_bas_bf_bg_color" value="<?php echo $get_bf_bg_color; ?>">
+
+            
+
+        <?php
+
+    }
+
+
+    //calback for opacity
+    public function pxls_bas_primary_color_opacity_callback(){
+
+        $get_bf_bg_color_opacity = get_option( 'pxls_bas_bf_bg_color_opacity');
+
+       
+       ?>
+
+           
+
+            <input type="number"  min="0" max="1" step="0.1" name="pxls_bas_bf_bg_color_opacity" value="<?php echo esc_attr($get_bf_bg_color_opacity); ?>" class="small-text">
 
         <?php
 
