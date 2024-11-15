@@ -90,23 +90,10 @@ class Menu {
     public function pxls_bas_primary_color_callback(){
 
         $get_color = get_option( 'pxls_bas_primary_color');
-
-        $post_info = get_post_meta( 84, '_pxls_bas_metx_box_before_image', true );
-
-        echo "<br />";
-
-        print_r( $post_info );
-
-        echo "<br />";
-
-
-
        
        ?>
 
             <input type="color" name="pxls_bas_primary_color" value="<?php echo $get_color; ?>">
-
-
 
         <?php
 

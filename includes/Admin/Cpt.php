@@ -12,6 +12,8 @@ class Cpt {
 
         add_action( 'save_post', [$this, 'pxls_bas_save_before_image'] );
 
+        add_action( 'save_post', [$this, 'pxls_bas_save_after_image'] );
+
     }
 
     public function register_pxls_bas_post_type(){
@@ -57,6 +59,8 @@ class Cpt {
      */
 
      public function pxls_bas_cpt_metaboxes() {
+
+        // Before Image Meta Box
         add_meta_box(
             'pxls_bas_before_image_meta_box',
             'Before Image',
@@ -65,6 +69,34 @@ class Cpt {
             'normal',
             'default'
         );
+
+
+        //After Image MetaBox
+        add_meta_box(
+            'pxls_bas_after_image_meta_box',
+            'After Image',
+            [$this, 'pxls_bas_after_image_meta_box_callback'],
+            'pxls-bas',
+            'normal',
+            'default'
+        );
+
+        //metabox for shortcode generation.
+        add_meta_box( 
+
+            'pxls_bas_shortcode_meta_box', 
+            'Shortcode', 
+            function($post){
+
+                echo ' <strong> [pxls-bas id="' . $post->ID . '"] </strong> ';
+
+            }, 
+            'pxls-bas', 
+            'side', 
+            'default', 
+            
+        );
+
     }
     
     /**
@@ -115,8 +147,57 @@ class Cpt {
             delete_post_meta($post_id, '_pxls_bas_metx_box_before_image');
         }
     }
+
+
+    // End of Metabox functionalty with saving for Before image
   
+    public function pxls_bas_after_image_meta_box_callback($post){
+
+        wp_nonce_field('pxls_bas_after_image_meta_box_data_action', 'pxls_bas_after_image_meta_box_nonce');
     
+        $image_url = get_post_meta($post->ID, '_pxls_bas_metx_box_after_image', true);
+    
+        ?>
+        <div class="pxls-bas-image-wrap-after">
+            <img src="<?php echo esc_url($image_url); ?>" alt="" style="max-width: 100%; display: <?php echo $image_url ? 'block' : 'none'; ?> margin-bottom: 6px;">
+        </div>
+    
+        <input type="hidden" name="pxls_bas_metx_box_after_image" id="pxls_bas_meta_box_after_image" value="<?php echo esc_attr($image_url); ?>" />
+    
+        <button type="button" class="after-image-upload-button button" data-target="after">Upload Image</button>
+        <button type="button" class="remove-image-button-after button" data-target="after" style="display: <?php echo $image_url ? 'inline-block' : 'none'; ?>;">Remove Image</button>
+        <?php
+
+
+    }
+
+    /**
+     * Save the Before Image Meta Data
+     */
+    public function pxls_bas_save_after_image($post_id) {
+        // Check the nonce for security
+        if (!isset($_POST['pxls_bas_after_image_meta_box_nonce']) ||
+            !wp_verify_nonce($_POST['pxls_bas_after_image_meta_box_nonce'], 'pxls_bas_after_image_meta_box_data_action')) {
+            return;
+        }
+    
+        // Check for autosave
+        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+            return;
+        }
+    
+        // Check user permissions
+        if (!current_user_can('edit_post', $post_id)) {
+            return;
+        }
+    
+        // Save the image URL
+        if (isset($_POST['pxls_bas_metx_box_after_image'])) {
+            update_post_meta($post_id, '_pxls_bas_metx_box_after_image', esc_url_raw($_POST['pxls_bas_metx_box_after_image']));
+        } else {
+            delete_post_meta($post_id, '_pxls_bas_metx_box_after_image');
+        }
+    }
    
 
   
