@@ -14,6 +14,8 @@ class Cpt {
 
         add_action( 'save_post', [$this, 'pxls_bas_save_after_image'] );
 
+        add_filter( 'post_row_actions', [$this, 'pxls_bas_remove_row_actions'] );
+
     }
 
     public function register_pxls_bas_post_type(){
@@ -197,6 +199,15 @@ class Cpt {
         } else {
             delete_post_meta($post_id, '_pxls_bas_metx_box_after_image');
         }
+    }
+
+
+    //Remove view from the action
+    public function pxls_bas_remove_row_actions($action){
+
+        unset($action['view']);
+
+        return $action;
     }
    
 
