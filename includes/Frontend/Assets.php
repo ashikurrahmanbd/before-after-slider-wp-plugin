@@ -22,8 +22,6 @@ class Assets {
 
         
 
-   
-        wp_register_script( 'pxls-hammer-js', PXLS_BAS_ASSETS . '/js/hammer.js', array('jquery'), filemtime(__FILE__), true);
 
         wp_register_script( 'pxls-slider-min-js', PXLS_BAS_ASSETS . '/js/pxls-image-compare.min.js', array('jquery'), filemtime(__FILE__), true);
 

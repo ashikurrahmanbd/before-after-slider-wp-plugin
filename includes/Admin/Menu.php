@@ -19,33 +19,51 @@ class Menu {
         add_menu_page( __('Before After Slider', 'pixelese-before-after-slider'), __('Before After Slider', 'pixelese-before-after-slider'), 'manage_options', $parent_menu_slug, [$this, 'plugin_menu_page'], 'dashicons-image-flip-horizontal' );
 
 
+        add_submenu_page( $parent_menu_slug, __('Add New Slider', 'pixelese-before-after-slider'), __('Add New', 'pixelese-before-after-slider'), 'manage_options', 'post-new.php?post_type=pxls-bas');
+
+
+        add_submenu_page( $parent_menu_slug, 'Slider Settings', 'Settings', 'manage_options', $parent_menu_slug, [$this, 'plugin_menu_settings_callback']);
+
+
     }
 
     public function plugin_menu_page(){
 
+        /**
+         * Place holder functiotn not need to do anything
+         */
+
+    }
+
+    /**
+     * Plugin Settings Page callback
+     */
+
+    public function plugin_menu_settings_callback(){
+
         ?>
 
-            <div class="wrap">
-                <h2>Before After Slider</h2>
+        <div class="wrap">
+            <h2>Before After Slider</h2>
 
-                <form action="options.php" method="post">
+            <form action="options.php" method="post">
 
-                    <?php 
+                <?php 
 
-                        settings_fields( 'pxls_bas_settings_group' );
+                    settings_fields( 'pxls_bas_settings_group' );
 
-                        //it require the pages slug where i need to show
-                        do_settings_sections( 'pxls-bas-settings' ); 
+                    //it require the pages slug where i need to show
+                    do_settings_sections( 'pxls-bas-settings' ); 
 
 
-                        submit_button('Save Settings');
+                    submit_button('Save Settings');
 
-                    ?>
+                ?>
 
-                </form>
-            </div>
+            </form>
+        </div>
 
-        <?php
+    <?php
 
     }
 
