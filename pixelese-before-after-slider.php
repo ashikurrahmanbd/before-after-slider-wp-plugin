@@ -116,7 +116,7 @@ final class Pixelese_Before_After_Slider{
 
         }
 
-        update_option( 'pixelese_before_after_slider_installed', PXLS_BAS_VERSION );
+        update_option( 'pixelese_before_after_slider_version', PXLS_BAS_VERSION );
 
     }
 
