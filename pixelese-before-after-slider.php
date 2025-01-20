@@ -108,15 +108,15 @@ final class Pixelese_Before_After_Slider{
      */
     public function activate(){
 
-        $installed = get_option( 'pixelese_before_after_slider_installed' );
+        $installed = get_option( 'pxls_bas_installed' );
 
         if ( ! $installed ) {
 
-            update_option( 'pixelese_before_after_slider_installed', time() );
+            update_option( 'pxls_bas_installed', time() );
 
         }
 
-        update_option( 'pixelese_before_after_slider_version', PXLS_BAS_VERSION );
+        update_option( 'pxls_bas_installed_version', PXLS_BAS_VERSION );
 
     }
 
