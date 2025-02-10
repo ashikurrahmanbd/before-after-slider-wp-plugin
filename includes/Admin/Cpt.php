@@ -90,7 +90,7 @@ class Cpt {
             'Shortcode', 
             function($post){
 
-                echo ' <strong> [pxls-bas id="' . $post->ID . '"] </strong> ';
+                echo '<code class="pxls-bas-shortcode"> <strong> [pxls-bas id="' . $post->ID . '"] </strong> </code>';
 
             }, 
             'pxls-bas', 
@@ -126,11 +126,13 @@ class Cpt {
      * Save the Before Image Meta Data
      */
     public function pxls_bas_save_before_after_image($post_id) {
-        
+
         // Check the nonce for security
         if (!isset($_POST['pxls_bas_before_image_meta_box_nonce']) ||
             !wp_verify_nonce($_POST['pxls_bas_before_image_meta_box_nonce'], 'pxls_bas_before_image_meta_box_data_action')) {
+
             return;
+
         }
     
         // Check for autosave

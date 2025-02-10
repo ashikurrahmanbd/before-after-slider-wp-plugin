@@ -1,3 +1,7 @@
-body{
-    
+#pxls_bas_shortcode_meta_box .inside{
+    margin-top: 6px;
+}
+
+code.pxls-bas-shortcode{
+    padding: 8px;
 }

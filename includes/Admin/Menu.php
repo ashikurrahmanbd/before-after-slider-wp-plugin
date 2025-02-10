@@ -94,13 +94,10 @@ class Menu {
     public function pxls_bas_primary_color_callback(){
 
         $get_bf_bg_color = get_option( 'pxls_bas_bf_bg_color');
-
        
        ?>
 
             <input type="color" name="pxls_bas_bf_bg_color" value="<?php echo $get_bf_bg_color; ?>">
-
-            
 
         <?php
 

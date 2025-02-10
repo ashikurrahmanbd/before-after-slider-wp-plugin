@@ -47,10 +47,12 @@ class Shortcode {
         
         <?php if ( !empty( $before_image ) ): ?>
         <div id="beer-slider" class="beer-slider" data-beer-label="before">
+
             <img src="<?php echo esc_url( $before_image ) ; ?>" alt="Original - Man holding beer">
             <div class="beer-reveal" data-beer-label="after">
                 <img src="<?php echo esc_url( $after_image ) ; ?>" alt="Processed - Man holding beer">
             </div>
+            
         </div>
         <?php else: ?>
             
