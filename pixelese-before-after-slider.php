@@ -30,10 +30,10 @@ require_once __DIR__ . '/vendor/autoload.php';
  * 
  * 
  */
-final class Pixelese_Before_After_Slider{
+final class PXLS_BAS_Before_After_Slider{
 
 
-    const version = '1.0';
+    const version = '1.0.0';
 
     /**
      * Summary of __construct
@@ -155,9 +155,9 @@ final class Pixelese_Before_After_Slider{
  * 
  * @return \Pixelese_Before_After_Slider
  */
-function pixelese_before_after_slider(){
+function pxls_bas_before_after_slider(){
 
-    return Pixelese_Before_After_Slider::get_instance();
+    return PXLS_BAS_Before_After_Slider::get_instance();
 
 }
 
@@ -165,5 +165,5 @@ function pixelese_before_after_slider(){
 /**
  * Run the Plugin
 */
-pixelese_before_after_slider();
+pxls_bas_before_after_slider();
 

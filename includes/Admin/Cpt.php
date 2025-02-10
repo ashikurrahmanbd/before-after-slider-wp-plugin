@@ -10,9 +10,9 @@ class Cpt {
 
         add_action('add_meta_boxes', [$this, 'pxls_bas_cpt_metaboxes']);
 
-        add_action( 'save_post', [$this, 'pxls_bas_save_before_image'] );
+        add_action( 'save_post', [$this, 'pxls_bas_save_before_after_image'] );
 
-        add_action( 'save_post', [$this, 'pxls_bas_save_after_image'] );
+    
 
         add_filter( 'post_row_actions', [$this, 'pxls_bas_remove_row_actions'] );
 
@@ -125,7 +125,8 @@ class Cpt {
     /**
      * Save the Before Image Meta Data
      */
-    public function pxls_bas_save_before_image($post_id) {
+    public function pxls_bas_save_before_after_image($post_id) {
+        
         // Check the nonce for security
         if (!isset($_POST['pxls_bas_before_image_meta_box_nonce']) ||
             !wp_verify_nonce($_POST['pxls_bas_before_image_meta_box_nonce'], 'pxls_bas_before_image_meta_box_data_action')) {
@@ -142,12 +143,30 @@ class Cpt {
             return;
         }
     
-        // Save the image URL
+        // Save the before image URL
         if (isset($_POST['pxls_bas_metx_box_before_image'])) {
+
             update_post_meta($post_id, '_pxls_bas_metx_box_before_image', esc_url_raw($_POST['pxls_bas_metx_box_before_image']));
+
         } else {
+
             delete_post_meta($post_id, '_pxls_bas_metx_box_before_image');
+
         }
+
+
+        // Save the after image URL
+        if (isset($_POST['pxls_bas_metx_box_after_image'])) {
+
+            update_post_meta($post_id, '_pxls_bas_metx_box_after_image', esc_url_raw($_POST['pxls_bas_metx_box_after_image']));
+
+        } else {
+
+            delete_post_meta($post_id, '_pxls_bas_metx_box_after_image');
+
+        }
+
+
     }
 
 
@@ -171,34 +190,6 @@ class Cpt {
         <?php
 
 
-    }
-
-    /**
-     * Save the Before Image Meta Data
-     */
-    public function pxls_bas_save_after_image($post_id) {
-        // Check the nonce for security
-        if (!isset($_POST['pxls_bas_after_image_meta_box_nonce']) ||
-            !wp_verify_nonce($_POST['pxls_bas_after_image_meta_box_nonce'], 'pxls_bas_after_image_meta_box_data_action')) {
-            return;
-        }
-    
-        // Check for autosave
-        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
-            return;
-        }
-    
-        // Check user permissions
-        if (!current_user_can('edit_post', $post_id)) {
-            return;
-        }
-    
-        // Save the image URL
-        if (isset($_POST['pxls_bas_metx_box_after_image'])) {
-            update_post_meta($post_id, '_pxls_bas_metx_box_after_image', esc_url_raw($_POST['pxls_bas_metx_box_after_image']));
-        } else {
-            delete_post_meta($post_id, '_pxls_bas_metx_box_after_image');
-        }
     }
 
 

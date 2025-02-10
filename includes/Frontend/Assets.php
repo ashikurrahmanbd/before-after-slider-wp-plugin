@@ -31,7 +31,6 @@ class Assets {
             wp_enqueue_style( 'pxls-bas-min-css' );
 
             wp_enqueue_style( 'pxls-frontend-css' );
-
             
 
             wp_enqueue_script( 'pxls-slider-min-js' );

@@ -17,6 +17,8 @@
             "Pixelese\\Bas\\": "includes/"
 
         },
-        "files" : []
+        "files" : [
+            "includes/functions.php"
+        ]
     }
 }

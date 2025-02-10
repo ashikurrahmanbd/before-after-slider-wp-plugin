@@ -16,13 +16,14 @@ class Menu {
 
         $parent_menu_slug = 'pxls-bas-settings';
 
-        add_menu_page( __('Before After Slider', 'pixelese-before-after-slider'), __('Before After Slider', 'pixelese-before-after-slider'), 'manage_options', $parent_menu_slug, [$this, 'plugin_menu_page'], 'dashicons-image-flip-horizontal' );
+        add_menu_page( __('Before After Slider', 'pixelese-before-after-slider'), __('Before After Slider', 'pixelese-before-after-slider'), 'manage_options', $parent_menu_slug, [$this, 'plugin_menu_page'], 'dashicons-image-flip-horizontal', 20);
 
 
         add_submenu_page( $parent_menu_slug, __('Add New Slider', 'pixelese-before-after-slider'), __('Add New', 'pixelese-before-after-slider'), 'manage_options', 'post-new.php?post_type=pxls-bas');
 
 
         add_submenu_page( $parent_menu_slug, 'Slider Settings', 'Settings', 'manage_options', $parent_menu_slug, [$this, 'plugin_menu_settings_callback']);
+
 
 
     }
@@ -113,8 +114,6 @@ class Menu {
 
        
        ?>
-
-           
 
             <input type="number"  min="0" max="1" step="0.1" name="pxls_bas_bf_bg_color_opacity" value="<?php echo esc_attr($get_bf_bg_color_opacity); ?>" class="small-text">
 
