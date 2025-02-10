@@ -1,3 +1,3 @@
 <?php
 
-if ( ! defined( 'WP_INSTALL_PLUGIN' ) ) exit;
+if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) exit;

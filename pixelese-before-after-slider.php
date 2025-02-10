@@ -3,14 +3,16 @@
  * Plugin Name: Before After Slider by Pixelese
  * Plugin URI: https://wordpress.org/plugins/pixelese-before-after-slider
  * Author: Ashikur Rahman
+ * Author URI: https://ashikurrahmanbd.github.io/
  * Description: Professional Before After Comperison Slider
  * Tags: Slider, Before after slider, comperison slider
  * Version: 1.0.0
- * License: GPLv2 or later
- * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: pixelese-before-after-slider
- * Domain Path: /languages
- */
+ * Requires PHP: 7.0
+ * Requires at least: 5.0
+ * License: GPL-2.0+
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain: pixelese-before-after-slider.php
+*/
 
 if ( ! defined('ABSPATH') ) {
 
