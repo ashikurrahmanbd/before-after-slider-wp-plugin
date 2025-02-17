@@ -6,7 +6,7 @@ class Cpt {
 
     public function __construct(){
 
-        add_action( 'init', [$this, 'register_pxls_bas_post_type']);
+        add_action( 'init', [$this, 'pxls_bas_post_type_register']);
 
         add_action('add_meta_boxes', [$this, 'pxls_bas_cpt_metaboxes']);
 
@@ -18,7 +18,7 @@ class Cpt {
 
     }
 
-    public function register_pxls_bas_post_type(){
+    public function pxls_bas_post_type_register(){
 
         $labels = array(
 
