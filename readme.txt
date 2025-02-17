@@ -1,4 +1,4 @@
-== Pixelese Before After Slider ==
+== Before After Slider by Pixelese ==
 Contributors: wpartstudio
 Donate link: https://www.buymeacoffee.com/wpartstudio
 Tags: before after slider, comperison slider
@@ -7,7 +7,7 @@ Stable Tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-**Pixelese Before After Slider** is a powerful WordPress plugin that allows you to showcase before-and-after comparisons of two images in an interactive slider.
+Pixelese Before After Slider is an innovative WordPress plugin designed to help you create visually stunning and interactive before-and-after image comparisons. Whether you're a photographer showcasing retouching work, a designer highlighting creative transformations, a beauty professional presenting makeover results, or anyone looking to display side-by-side comparisons, this plugin offers a seamless solution.
 
 ## Description
 

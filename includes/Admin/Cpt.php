@@ -90,7 +90,7 @@ class Cpt {
             'Shortcode', 
             function($post){
 
-                echo '<code class="pxls-bas-shortcode"> <strong> [pxls-bas id="' . $post->ID . '"] </strong> </code>';
+                echo '<code class="pxls-bas-shortcode"> <strong> [pxls-bas id="' . esc_attr( $post->ID ) . '"] </strong> </code>';
 
             }, 
             'pxls-bas', 
@@ -111,9 +111,13 @@ class Cpt {
         $image_url = get_post_meta($post->ID, '_pxls_bas_metx_box_before_image', true);
     
         ?>
+        <?php if( ! empty( $image_url ) ) : ?>
         <div class="pxls-bas-image-wrap-before">
+            <?php //phpcs:disable PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage ?>
             <img src="<?php echo esc_url($image_url); ?>" alt="" style="max-width: 100%; display: <?php echo $image_url ? 'block' : 'none'; ?> margin-bottom: 6px;">
+
         </div>
+        <?php endif; ?>
     
         <input type="hidden" name="pxls_bas_metx_box_before_image" id="pxls_bas_meta_box_before_image" value="<?php echo esc_attr($image_url); ?>" />
     
@@ -128,8 +132,12 @@ class Cpt {
     public function pxls_bas_save_before_after_image($post_id) {
 
         // Check the nonce for security
-        if (!isset($_POST['pxls_bas_before_image_meta_box_nonce']) ||
-            !wp_verify_nonce($_POST['pxls_bas_before_image_meta_box_nonce'], 'pxls_bas_before_image_meta_box_data_action')) {
+
+        // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Nonces should not be sanitized.
+        if (!isset(
+            $_POST['pxls_bas_before_image_meta_box_nonce']) ||
+            // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Nonces should not be sanitized.
+            !wp_verify_nonce(wp_unslash( $_POST['pxls_bas_before_image_meta_box_nonce'] ), 'pxls_bas_before_image_meta_box_data_action')) {
 
             return;
 
@@ -148,7 +156,7 @@ class Cpt {
         // Save the before image URL
         if (isset($_POST['pxls_bas_metx_box_before_image'])) {
 
-            update_post_meta($post_id, '_pxls_bas_metx_box_before_image', esc_url_raw($_POST['pxls_bas_metx_box_before_image']));
+            update_post_meta($post_id, '_pxls_bas_metx_box_before_image', esc_url_raw(wp_unslash( $_POST['pxls_bas_metx_box_before_image'] )));
 
         } else {
 
@@ -160,7 +168,7 @@ class Cpt {
         // Save the after image URL
         if (isset($_POST['pxls_bas_metx_box_after_image'])) {
 
-            update_post_meta($post_id, '_pxls_bas_metx_box_after_image', esc_url_raw($_POST['pxls_bas_metx_box_after_image']));
+            update_post_meta($post_id, '_pxls_bas_metx_box_after_image', esc_url_raw( wp_unslash( $_POST['pxls_bas_metx_box_after_image'] ) ));
 
         } else {
 
@@ -178,10 +186,12 @@ class Cpt {
 
         wp_nonce_field('pxls_bas_after_image_meta_box_data_action', 'pxls_bas_after_image_meta_box_nonce');
     
+        //phpcs:ignore PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
         $image_url = get_post_meta($post->ID, '_pxls_bas_metx_box_after_image', true);
     
         ?>
         <div class="pxls-bas-image-wrap-after">
+            <!-- phpcs:disable PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage -->
             <img src="<?php echo esc_url($image_url); ?>" alt="" style="max-width: 100%; display: <?php echo $image_url ? 'block' : 'none'; ?> margin-bottom: 6px;">
         </div>
     

@@ -35,6 +35,10 @@ class Shortcode {
 
         $before_after_tag_bg_color = get_option( 'pxls_bas_bf_bg_color');
 
+        // Get the image ID (if it's from the media library)
+        $before_image_id = attachment_url_to_postid($before_image);
+        $after_image_id = attachment_url_to_postid($after_image);
+
         ob_start();
 
         ?>
@@ -47,10 +51,28 @@ class Shortcode {
         
         <?php if ( !empty( $before_image ) ): ?>
         <div id="beer-slider" class="beer-slider" data-beer-label="before">
+            
+            
+            <?php 
+                if ($before_image_id) {
+                    echo wp_get_attachment_image($before_image_id, 'full', false, ['alt' => 'Original - Man holding beer']);
+                } else {
+                    //phpcs:disable PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
+                    echo '<img src="' . esc_url($before_image) . '" alt="Original - Man holding beer">';
+                }
+            ?>
 
-            <img src="<?php echo esc_url( $before_image ) ; ?>" alt="Original - Man holding beer">
             <div class="beer-reveal" data-beer-label="after">
-                <img src="<?php echo esc_url( $after_image ) ; ?>" alt="Processed - Man holding beer">
+                
+                <?php 
+                    if ($after_image_id) {
+                        echo wp_get_attachment_image($after_image_id, 'full', false, ['alt' => 'Processed - Man holding beer']);
+                    } else {
+                        //phpcs:disable PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
+                        echo '<img src="' . esc_url($after_image) . '" alt="Processed - Man holding beer">';
+                    }
+                ?>
+
             </div>
             
         </div>

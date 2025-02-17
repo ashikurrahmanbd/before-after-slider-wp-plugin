@@ -75,9 +75,9 @@ class Menu {
 
     public function plugin_settings_register(){
 
-        register_setting( 'pxls_bas_settings_group', 'pxls_bas_bf_bg_color' );
+        register_setting( 'pxls_bas_settings_group', 'pxls_bas_bf_bg_color', 'sanitize_text_field');
 
-        register_setting( 'pxls_bas_settings_group', 'pxls_bas_bf_bg_color_opacity' );
+        register_setting( 'pxls_bas_settings_group', 'pxls_bas_bf_bg_color_opacity', 'floatval');
 
         add_settings_section( 'pxls_bas_settings_section_general', 'General Settings', '', 'pxls-bas-settings' );
 
@@ -97,7 +97,7 @@ class Menu {
        
        ?>
 
-            <input type="color" name="pxls_bas_bf_bg_color" value="<?php echo $get_bf_bg_color; ?>">
+            <input type="color" name="pxls_bas_bf_bg_color" value="<?php echo esc_attr( $get_bf_bg_color ); ?>">
 
         <?php
 

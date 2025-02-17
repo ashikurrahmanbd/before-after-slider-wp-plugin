@@ -11,7 +11,7 @@
  * Requires at least: 5.0
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain: pixelese-before-after-slider.php
+ * Text Domain: pixelese-before-after-slider
 */
 
 if ( ! defined('ABSPATH') ) {
