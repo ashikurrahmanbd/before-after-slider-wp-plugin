@@ -8,8 +8,6 @@ class Assets{
 
         add_action( 'admin_enqueue_scripts', [$this, 'plugin_admin_assets_register']);
 
-        add_action('wp_head', );
-
     }
 
 
