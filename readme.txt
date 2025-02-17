@@ -7,11 +7,11 @@ Stable Tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Pixelese Before After Slider is an innovative WordPress plugin designed to help you create visually stunning and interactive before-and-after image comparisons. Whether you're a photographer showcasing retouching work, a designer highlighting creative transformations, a beauty professional presenting makeover results, or anyone looking to display side-by-side comparisons, this plugin offers a seamless solution.
+Pixelese Before After Slider is an interactive before-and-after image comparisons Plugin.
 
 ## Description
 
-Pixelese Before After Slider is an innovative WordPress plugin designed to help you create visually stunning and interactive before-and-after image comparisons. Whether you're a photographer showcasing retouching work, a designer highlighting creative transformations, a beauty professional presenting makeover results, or anyone looking to display side-by-side comparisons, this plugin offers a seamless solution.
+Whether you're a photographer showcasing retouching work, a designer highlighting creative transformations, a beauty professional presenting makeover results, or anyone looking to display side-by-side comparisons, this plugin offers a seamless solution.
 
 With its sleek and user-friendly interface, Pixelese Before After Slider allows you to easily upload and configure two images for comparison. Its responsive design ensures the slider looks flawless on all devices, from desktops to smartphones. The plugin features customizable slider handles, smooth transition effects, and multiple layout options, letting you tailor the experience to suit your website's style.
 Perfect for photographers, designers, beauty professionals, and anyone who wants to display transformation or comparison images in a stylish and engaging way.
