@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Before After Slider by Pixelese
- * Plugin URI: https://wordpress.org/plugins/pixelese-before-after-slider
+ * Plugin URI: https://wordpress.org/plugins/before-after-slider-by-pixelese
  * Author: Ashikur Rahman
  * Author URI: https://ashikurrahmanbd.github.io/
  * Description: Professional Before After Comperison Slider
@@ -11,7 +11,7 @@
  * Requires at least: 5.0
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain: pixelese-before-after-slider
+ * Text Domain: before-after-slider-by-pixelese
 */
 
 if ( ! defined('ABSPATH') ) {
@@ -30,7 +30,7 @@ require_once __DIR__ . '/vendor/autoload.php';
  * 
  * 
  */
-final class PXLS_BAS_Before_After_Slider{
+final class PXLS_BEAS_Before_After_Slider{
 
 
     const version = '1.0.0';
@@ -88,15 +88,13 @@ final class PXLS_BAS_Before_After_Slider{
      */
     public function define_constants() {
 
-        define( 'PXLS_BAS_VERSION', self::version );
+        define( 'PXLS_BEAS_VERSION', self::version );
 
-        define( 'PXLS_BAS_FILE', __FILE__ );
+        define( 'PXLS_BEAS_PATH', plugin_dir_path( __FILE__ ) );
 
-        define( 'PXLS_BAS_PATH', __DIR__ );
+        define( 'PXLS_BEAS_URL', plugin_dir_url( __FILE__ ) );
 
-        define( 'PXLS_BAS_URL', plugins_url( '', PXLS_BAS_FILE ) );
-
-        define( 'PXLS_BAS_ASSETS', PXLS_BAS_URL . '/assets' );
+        define( 'PXLS_BEAS_ASSETS', PXLS_BEAS_URL . '/assets' );
 
     }
 
@@ -110,15 +108,15 @@ final class PXLS_BAS_Before_After_Slider{
      */
     public function activate(){
 
-        $installed = get_option( 'pxls_bas_installed' );
+        $installed = get_option( 'pxls_beas_installed' );
 
         if ( ! $installed ) {
 
-            update_option( 'pxls_bas_installed', time() );
+            update_option( 'pxls_beas_installed', time() );
 
         }
 
-        update_option( 'pxls_bas_installed_version', PXLS_BAS_VERSION );
+        update_option( 'pxls_beas_installed_version', PXLS_BEAS_VERSION );
 
     }
 
@@ -132,11 +130,11 @@ final class PXLS_BAS_Before_After_Slider{
 
        if ( is_admin(  ) ) {
 
-            new Pixelese\Bas\Admin();
+            new Pixelese\Beas\Admin();
 
        } else {
 
-            new Pixelese\Bas\Frontend();
+            new Pixelese\Beas\Frontend();
 
        }
 
@@ -155,9 +153,9 @@ final class PXLS_BAS_Before_After_Slider{
  * 
  * @return \Pixelese_Before_After_Slider
  */
-function pxls_bas_before_after_slider(){
+function pxls_BEAS_before_after_slider(){
 
-    return PXLS_BAS_Before_After_Slider::get_instance();
+    return PXLS_BEAS_Before_After_Slider::get_instance();
 
 }
 
@@ -165,5 +163,10 @@ function pxls_bas_before_after_slider(){
 /**
  * Run the Plugin
 */
-pxls_bas_before_after_slider();
+pxls_beas_before_after_slider();
 
+
+function pxls_flush_rewrite_rules() {
+    flush_rewrite_rules();
+}
+add_action('init', 'pxls_flush_rewrite_rules');

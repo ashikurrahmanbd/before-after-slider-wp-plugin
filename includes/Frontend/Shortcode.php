@@ -1,6 +1,6 @@
 <?php 
 
-namespace Pixelese\Bas\Frontend;
+namespace Pixelese\Beas\Frontend;
 
 class Shortcode {
 
@@ -29,11 +29,11 @@ class Shortcode {
 
         $slider_id = $atts['id'];
 
-        $before_image = get_post_meta($slider_id, '_pxls_bas_metx_box_before_image', true);
+        $before_image = get_post_meta($slider_id, '_pxls_beas_metx_box_before_image', true);
 
-        $after_image = get_post_meta($slider_id, '_pxls_bas_metx_box_after_image', true);
+        $after_image = get_post_meta($slider_id, '_pxls_beas_metx_box_after_image', true);
 
-        $before_after_tag_bg_color = get_option( 'pxls_bas_bf_bg_color');
+        $before_after_tag_bg_color = get_option( 'pxls_beas_bf_bg_color');
 
         // Get the image ID (if it's from the media library)
         $before_image_id = attachment_url_to_postid($before_image);
@@ -43,11 +43,7 @@ class Shortcode {
 
         ?>
 
-        <style>
-            .beer-reveal[data-beer-label]:after, .beer-slider[data-beer-label]:after{
 
-            }
-        </style>
         
         <?php if ( !empty( $before_image ) ): ?>
         <div id="beer-slider" class="beer-slider" data-beer-label="before">

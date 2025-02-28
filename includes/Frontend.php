@@ -1,6 +1,6 @@
 <?php
 
-namespace Pixelese\Bas;
+namespace Pixelese\Beas;
 
 class Frontend { 
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Pixelese\Bas\Admin;
+namespace Pixelese\Beas\Admin;
 
 class Assets{
 
@@ -20,28 +20,28 @@ class Assets{
     
         // Register and enqueue CSS and JS for admin page
         wp_register_style(
-            'pxls-bas-admin-style',
-            PXLS_BAS_ASSETS . '/css/admin.css',
+            'pxls-beas-admin-style',
+            PXLS_BEAS_ASSETS . '/css/admin.css',
             [],
-            filemtime(__FILE__) // Corrected to file's actual path
+            filemtime( plugin_dir_path( dirname( dirname( __FILE__ ) ) ) . '/assets/css/admin.css' ) // Corrected to file's actual path
         );
 
         wp_register_script(
-            'pxls-bas-admin-script',
-            PXLS_BAS_ASSETS . '/js/admin.js',
+            'pxls-beas-admin-script',
+            PXLS_BEAS_ASSETS . '/js/admin.js',
             ['jquery'],
-            filemtime(__FILE__), // Corrected to file's actual path
+            filemtime( plugin_dir_path( dirname( dirname( __FILE__ ) ) ) . '/assets/js/admin.js' ), // Corrected to file's actual path
             true
         );
 
-        if ( is_admin() && $screen->post_type === 'pxls-bas' || is_admin() && $screen->base === 'toplevel_page_pxls-bas-settings' ) {
+        if ( is_admin() && $screen->post_type === 'pxls-beas' || is_admin() && $screen->base === 'toplevel_page_pxls-beas-settings' ) {
 
             // Enqueue WordPress media library if needed
             wp_enqueue_media();
 
-            wp_enqueue_style('pxls-bas-admin-style');
+            wp_enqueue_style('pxls-beas-admin-style');
 
-            wp_enqueue_script('pxls-bas-admin-script');
+            wp_enqueue_script('pxls-beas-admin-script');
 
             
         }

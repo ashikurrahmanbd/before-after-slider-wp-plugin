@@ -1,6 +1,6 @@
 <?php
 
-namespace Pixelese\Bas\Frontend;
+namespace Pixelese\Beas\Frontend;
 
 class Assets {
 

@@ -14,7 +14,7 @@
     "autoload": {
         "psr-4": {
 
-            "Pixelese\\Bas\\": "includes/"
+            "Pixelese\\Beas\\": "includes/"
 
         },
         "files" : [

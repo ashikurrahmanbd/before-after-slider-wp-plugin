@@ -1,8 +1,6 @@
 (function($) {
 
     jQuery(document).ready(function($){
-
-        
     
         $('.before-image-upload-button').on('click', function(event){
 
@@ -34,9 +32,9 @@
 
                 var attachment = file_frame.state().get('selection').first().toJSON();
 
-                $('#pxls_bas_meta_box_before_image').val(attachment.url);
+                $('#pxls_beas_meta_box_before_image').val(attachment.url);
 
-                $('.pxls-bas-image-wrap-before img').attr('src', attachment.url).show();
+                $('.pxls-beas-image-wrap-before img').attr('src', attachment.url).show();
 
                 $('.remove-image-button').show();
             });
@@ -49,9 +47,9 @@
 
             event.preventDefault();
 
-            $('#pxls_bas_meta_box_before_image').val('');
+            $('#pxls_beas_meta_box_before_image').val('');
 
-            $('.pxls-bas-image-wrap-before img').hide();
+            $('.pxls-beas-image-wrap-before img').hide();
 
             $(this).hide();
 
@@ -89,9 +87,9 @@
 
                 var attachment = file_frame.state().get('selection').first().toJSON();
 
-                $('#pxls_bas_meta_box_after_image').val(attachment.url);
+                $('#pxls_beas_meta_box_after_image').val(attachment.url);
 
-                $('.pxls-bas-image-wrap-after img').attr('src', attachment.url).show();
+                $('.pxls-beas-image-wrap-after img').attr('src', attachment.url).show();
 
                 $('.remove-image-button-after').show();
             });
@@ -104,9 +102,9 @@
 
             event.preventDefault();
 
-            $('#pxls_bas_meta_box_after_image').val('');
+            $('#pxls_beas_meta_box_after_image').val('');
 
-            $('.pxls-bas-image-wrap-after img').hide();
+            $('.pxls-beas-image-wrap-after img').hide();
 
             $(this).hide();
 

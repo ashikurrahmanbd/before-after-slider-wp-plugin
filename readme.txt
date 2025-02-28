@@ -7,7 +7,7 @@ Stable Tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Pixelese Before After Slider is an interactive before-and-after image comparisons Plugin.
+Before After Slider by Pixelese is an interactive before-and-after image comparisons Plugin.
 
 ## Description
 
@@ -70,6 +70,16 @@ Yes, you can add multiple sliders to a single page or post using their unique ID
 
 ### Is the plugin compatible with page builders?
 Absolutely! The plugin works seamlessly with Gutenberg, Elementor, Divi, and other popular page builders.
+
+== Frequently Asked Questions ==
+
+= Where can I find the unminified source files? =
+The unminified JavaScript and CSS files are included in the /assets/js/ and /assets/css/ directories.
+
+= External Libraries Used =
+This plugin uses the BeerSlider library. You can find the original source code here:
+[https://github.com/pehaa/BeerSlider](https://github.com/pehaa/BeerSlider)
+
 
 ## Changelog
 
